@@ -97,17 +97,47 @@
 在这里选择目标位置，通过2D Nav Goal选择地图上的一个位置进行导航
 ![9](/home/tianbot/Downloads/9.PNG)
 
-## 4.启动python文件进行导航
+### 4.启动python文件进行导航
 
     rosrun racecar_gazebo path_pursuit.py
 小车会缓慢移动至终点，终端会出现以下反馈,最后出现Goal Reached!表示小车成功到达目标点
 ![10](/home/tianbot/Downdloads/10.PNG)
 
+## 六.在智能车上添加YOLO摄像头识别物体
+### 文件准备
+#### 1、首先生成密钥
+    git config --global user.name "用户名"     注：用户名和邮箱名要自己改（随意）
+    git config --globa user.email "邮箱名"
+    ssh-keygen -t rsa -C "邮箱名"
+![11]()
 
+打完这三个命令之后回车 输入存放路径：home/主机名/.ssh/id_rsa,然后输入设置密码，然后再次输入刚刚的密码即可。
+使用改命令生成密钥
+    
+    cat ~/.ssh/id_rsa.pub
+
+#### 2.github添加密钥
+在github网站上登录自己的账号，然后选择setting
+![12]()
+然后依次选择
+![13]()
+
+title随意取一个，key即为终端中生成的密钥，全部复制下来粘贴即可
+![14]()
+然后就生成以下内容
+![15]()
+之后就可以开始下载了：
+    
+    cd ~/racecar_ws/src
+    git clone --recursive git@github.com:leggedrobotics/darknet_ros.git
+
+<mark>下载的时候会弹出一个窗口，输入设置的密码即可。
+![16]()
+下载完成。
+![17]()
 
 
     
-
 
 
 
